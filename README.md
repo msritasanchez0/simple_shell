@@ -1,6 +1,6 @@
 # 0x16. C - Simple Shell
  **By Rita Chepngeno and Tony Juma **
- Project to be done in teams of 2 people (your team: Rita Cheongeno , Tony Juma)
+ Project to be done in teams of 2 people (your team: Rita Chepngeno , Tony Juma)
 
 # Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
