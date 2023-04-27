@@ -1,3 +1,5 @@
+
+
 #include "shell.h"
 
 /**
@@ -12,7 +14,7 @@ int _erratoi(char *s)
 	unsigned long int result = 0;
 
 	if (*s == '+')
-		s++;  /* TODO: why does this make main return 255? */
+		s++; 
 	for (i = 0;  s[i] != '\0'; i++)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
@@ -37,11 +39,15 @@ int _erratoi(char *s)
  */
 void print_error(info_t *info, char *estr)
 {
-	_eputs(info->fname);
+	char *fname = info->fname;
+	char *argv0 = info->argv[0];
+	int line_count = info->line_count;
+	
+	_eputs(fname);
 	_eputs(": ");
-	print_d(info->line_count, STDERR_FILENO);
+	print_d(line_count, STDERR_FILENO);
 	_eputs(": ");
-	_eputs(info->argv[0]);
+	_eputs(argv0);
 	_eputs(": ");
 	_eputs(estr);
 }
@@ -129,13 +135,8 @@ char *convert_number(long int num, int base, int flags)
  */
 void remove_comments(char *buf)
 {
-	int i;
+	char *ptr = strchr(buf, '#');
 
-	for (i = 0; buf[i] != '\0'; i++)
-		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
-		{
-			buf[i] = '\0';
-			break;
-		}
+	if (ptr && (ptr == buf || *(ptr - 1) == ' '))
+		*ptr = '\0';
 }
-

@@ -1,67 +1,54 @@
 #include "shell.h"
 
 /**
- **_strncpy - function that copies a string
- *@dest: the destination the string is to be copied
- *@src: the source string
- *@n: the amount of characters to be copied
- *Return: the concatenated string
+ * _strncpy - copies a string
+ * @dest: the destination string to be copied to
+ * @src: the source string
+ * @n: the amount of characters to be copied
+ *
+ * Return: the concatenated string
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int a, b;
-	char *s = dest;
+	int i;
+	char *ret = dest;
 
-	a = 0;
-	while (src[a] != '\0' && a < n - 1)
-	{
-		dest[a] = src[a];
-		a++;
-	}
-	if (a < n)
-	{
-		b = a;
-		while (b < n)
-		{
-			dest[b] = '\0';
-			b++;
-		}
-	}
-	return (s);
+	for (i = 0; i < n && src[i] != '\0'; i++)
+		dest[i] = src[i];
+	for (; i < n; i++)
+		dest[i] = '\0';
+
+	return (ret);
 }
 
 /**
- **_strncat - function that concatenates strings
- *@dest: the first str
- *@src: the second str
- *@n: the amount of bytes to be maximally used
- *Return: the cat str
+ * _strncat - concatenates two strings
+ * @dest: the first string
+ * @src: the second string
+ * @n: the amount of bytes to be maximally used
+ *
+ * Return: the concatenated string
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	char *s = dest;
-	int a, b;
+	int i, j;
+	char *ret = dest;
 
-	a = 0;
-	b = 0;
-	while (dest[a] != '\0')
-		a++;
-	while (src[b] != '\0' && b < n)
-	{
-		dest[a] = src[b];
-		a++;
-		b++;
-	}
-	if (b < n)
-		dest[a] = '\0';
-	return (s);
+	for (i = 0; dest[i] != '\0'; i++)
+		;
+	for (j = 0; j < n && src[j] != '\0'; j++, i++)
+		dest[i] = src[j];
+	dest[i] = '\0';
+
+	return (ret);
 }
 
 /**
- **_strchr -function that locates char in a str
- *@s: the str
- *@c: the character to look for
- *Return: (s) a pointer to the memory area s
+ * _strchr - locates a character in a string
+ * @s: the string to be parsed
+ * @c: the character to look for
+ *
+ * Return: a pointer to the memory area s
  */
 char *_strchr(char *s, char c)
 {
@@ -72,4 +59,4 @@ char *_strchr(char *s, char c)
 
 	return (NULL);
 }
-
+}
