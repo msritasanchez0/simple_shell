@@ -25,12 +25,13 @@ access (man 2 access) chdir (man 2 chdir) close (man 2 close) closedir (man 3 cl
 Your shell will be compiled this way:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
-#### How to add Author file
-Bash script for generating the list of authors in git repo
-
+## How to add Author file
+`Bash script for generating the list of authors in git repo`
+```
 #!/bin/sh
 
 git shortlog -se \
   | perl -spe 's/^\s+\d+\s+//' \
   | sed -e '/^CommitSyncScript.*$/d' \
   > AUTHORS
+  ``` AUTHORS
