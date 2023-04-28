@@ -2,7 +2,7 @@
 
 /**
  *_eputs - prints an input string
- * 
+ *
  * @str:string
  *
  * Return: Nothing
@@ -22,7 +22,7 @@ void _eputs(char *str)
 
 /**
  * _eputchar - Outputs the character c to the standard error stream (stderr)
- * 
+ *
  * @c: character
  *
  * Return: On success 1.
@@ -45,9 +45,9 @@ int _eputchar(char c)
 
 /**
  * _putfd - Writes the character 'c' to the specified file descriptor (fd)
- * 
+ *
  * @c: character
- * 
+ *
  * @fd: file descriptor
  *
  * Return: On success 1.
@@ -70,9 +70,9 @@ int _putfd(char c, int fd)
 
 /**
  *_putsfd - Displays an input string
- * 
+ *
  * @str:string
- * 
+ *
  * @fd:file descriptor
  *
  * Return: the number of chars put

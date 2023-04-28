@@ -2,7 +2,7 @@
 
 /**
  * get_history_file - retrieves the history file
- * 
+ *
  * @info: struct
  *
  * Return: allocated string containg history file
@@ -57,7 +57,7 @@ int write_history(info_t *info)
 
 /**
  * read_history - retrievess history from file
- * 
+ *
  * @info: the parameter struct
  *
  * Return: histcount on success, 0 otherwise
@@ -108,7 +108,7 @@ int read_history(info_t *info)
 /**
  * build_history_list - The function appends an entry to a
  *	linked list that stores the history
- * 
+ *
  * @buf: buffer
  * @info: Structure
  * @linecount: linecount, histcount
@@ -131,7 +131,7 @@ int build_history_list(info_t *info, char *buf, int linecount)
 /**
  * renumber_history - The history linked list is re-indexed
  *	after modifications are made.
- * 
+ *
  * @info: Structure
  *
  * Return: the new histcount

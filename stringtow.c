@@ -6,7 +6,7 @@
  *
  * @str: the input string to be split.
  * @d: the delimiter string used to separate the words
- * 
+ *
  * Return: a pointer to an array of strings that contain the individual
  *	words, or NULL if the function fails to split the string.
  */
@@ -54,12 +54,12 @@ char **strtow(char *str, char *d)
 
 /**
  * **strtow2 - divides a string into separate words based on a given delimiter
- * 
+ *
  * @str:  the input string to be split.
  * @d: the delimeter that separates the words in the input string.
- * 
+ *
  * Return: a pointer to an array of strings representing the
- *	individual words in the input string. 
+ *	individual words in the input string.
  *	If the function fails, it returns NULL
  */
 char **strtow2(char *str, char d)

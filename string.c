@@ -35,7 +35,7 @@ char *_strncpy(char *dest, char *src, int n)
 }
 
 /*
- * *_strncat - concatenates two strings
+ **_strncat - concatenates two strings
  *
  * @dest: first string
  * @src:second string
@@ -65,9 +65,10 @@ char *_strncat(char *dest, char *src, int n)
 
 /**
  **_strchr - finds a character in a string
- *@s:string
- *@c: character to look for
- 
+ *
+ * @s: string
+ * @c: character to look for
+ *
  *Return: (s) a pointer to the memory area s
  */
 char *_strchr(char *s, char c)

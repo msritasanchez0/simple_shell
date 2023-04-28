@@ -35,7 +35,7 @@ void ffree(char **pp)
 
 /**
  * _realloc - modifies the size of a previously allocated memory block
- * 
+ *
  * @ptr: a pointer to the previously allocated block.
  * @old_size: the size of the previously allocated block in bytes.
  * @new_size: the desired size of the new memory block in bytes.

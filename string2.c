@@ -2,7 +2,7 @@
 
 /**
  * _strcpy - copies a string
- * 
+ *
  * @dest: a pointer to the destination string
  * @src: a pointer to the source string
  *
@@ -25,7 +25,7 @@ char *_strcpy(char *dest, char *src)
 
 /**
  * _strdup - duplicates a string
- * 
+ *
  * @str: the string to duplicate
  *
  * Return: pointer to the duplicated string
@@ -69,7 +69,7 @@ void _puts(char *str)
 
 /**
  * _putchar - writes the character c to stdout
- * 
+ *
  * @c: The character to print
  *
  * Return: On success 1.

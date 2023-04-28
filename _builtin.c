@@ -3,11 +3,11 @@
 /**
  * _myhistory - displays the history list, one command per line,
  * with line numbers
- * 
+ *
  * @info: structure that holds possible arguments
  *	and is utilized to ensure that the
  *	function prototype remains constant.
- *  
+ *
  * Return: Always 0
  */
 int _myhistory(info_t *info)
@@ -18,9 +18,9 @@ int _myhistory(info_t *info)
 
 /**
  * unset_alias - An alias to string is set
- * 
+ *
  * @info: struct
- * 
+ *
  * @str: Alias string
  *
  * Return: Always 0 on success, 1 on error
@@ -43,9 +43,9 @@ int unset_alias(info_t *info, char *str)
 
 /**
  * set_alias -An alias to string is set
- * 
+ *
  * @info: struct
- * 
+ *
  * @str: string alias
  *
  * Return: Always 0 on success, 1 on error
@@ -66,7 +66,7 @@ int set_alias(info_t *info, char *str)
 
 /**
  * print_alias - prints string alias
- * 
+ *
  * @node: node of the alias
  *
  * Return: Always 0 on success, 1 on error
@@ -90,11 +90,11 @@ int print_alias(list_t *node)
 
 /**
  * _myalias -imitates the alias builtin (man alias)
- * 
+ *
  * @info: This is a structure that holds possible
  *	arguments and is utilized to ensure that
  *	the function prototype remains constant.
- * 
+ *
  * Return: Always 0
  */
 int _myalias(info_t *info)

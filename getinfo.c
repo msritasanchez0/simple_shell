@@ -4,8 +4,8 @@
  * clear_info -This structure holds potential arguments
  *	and is utilized to maintain clear information.
  *	- initialize the info_t structure.
-* 
-* @info: Refers to the address of the struct.
+ *
+ * @info: Refers to the address of the struct.
  *
  */
 void clear_info(info_t *info)
@@ -18,7 +18,7 @@ void clear_info(info_t *info)
 
 /**
  * set_info - initializes info_t struct
- * 
+ *
  * @info: struct address
  * @av: argument vector
  */
@@ -51,7 +51,7 @@ void set_info(info_t *info, char **av)
 
 /**
  * free_info - frees info_t struct fields
- * 
+ *
  * @info: address
  * @all: true if freeing all fields
  */

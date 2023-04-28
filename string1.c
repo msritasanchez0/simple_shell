@@ -21,7 +21,7 @@ int _strlen(char *s)
 
 /**
  * _strcmp - compares two strings in lexicographic order.
- * 
+ *
  * @s1: the first string to be compared.
  * @s2:  the second string to be compared.
  *
@@ -47,7 +47,7 @@ int _strcmp(char *s1, char *s2)
 /**
  * starts_with - determines whether the string haystack begins
  *	with the substring needle.
- * 
+ *
  * @haystack: the string to searched
  * @needle: the substring to find at the beginning of the haystack string
  *

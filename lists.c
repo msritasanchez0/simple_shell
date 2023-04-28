@@ -36,10 +36,10 @@ list_t *add_node(list_t **head, const char *str, int num)
 
 /**
  * add_node_end - Appends a node to the end of the list.
- * 
+ *
  * @num: the index of the node used in the history.
- * head: a pointer to the head node of a data structure.
- * str: the string value stored in the node.
+ * @head: a pointer to the head node of a data structure.
+ * @str: the string value stored in the node.
  *
  *
  * Return: size of list
@@ -79,7 +79,7 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 
 /**
  * print_list_str - Displays solely the str element of a list_t linked list.
- * 
+ *
  * @h: pointer to the first node of the linked list
  *
  * Return: the size of the linked list
@@ -101,7 +101,7 @@ size_t print_list_str(const list_t *h)
 /**
  * delete_node_at_index - The function remove_node_at_index
  *	 removes the node located at the specified index.
- * 
+ *
  * @head: a pointer to the first node in the linked list.
  * @index: the index of node to be removed
  *
@@ -144,7 +144,7 @@ int delete_node_at_index(list_t **head, unsigned int index)
 /**
  * free_list - The function deallocate_list releases
  *	all nodes in a list.
- * 
+ *
  * @head_ptr: a pointer to the address of the head node in the list
  *
  * Return: void

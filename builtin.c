@@ -2,10 +2,10 @@
 
 /**
  * _myexit - This function exits the shell with a given exit status.
- * @info: A structure containing potential 
+ * @info: A structure containing potential
  *	arguments. This is used to maintain
  *	a constant function prototype.
- * Return: This function exits with a given 
+ * Return: This function exits with a given
  *	exit status (0) if info.argv[0] != "exit".
  */
 int _myexit(info_t *info)
@@ -32,10 +32,10 @@ int _myexit(info_t *info)
 
 /**
  * _mycd - changes the current directory
- * 
+ *
  * @info: Struct that holds potential arguments for
  *	maintaining a constant function prototype.
- * 
+ *
  * Return: 0 Always
  */
 
@@ -85,10 +85,10 @@ int _mycd(info_t *info)
 
 /**
  * _myhelp - changes the current directory
- * 
+ *
  * @info: Structure used to maintain a constant
  *	function prototype by containing potential arguments.
- * 
+ *
  * Return: Always 0
  */
 

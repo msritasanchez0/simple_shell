@@ -3,7 +3,7 @@
 /**
  * list_len - The function list_len computes the
  *	size of a linked list
- * 
+ *
  * @h: a pointer to the first node of the linked list.
  *
  * Return: the length of linked list
@@ -23,7 +23,7 @@ size_t list_len(const list_t *h)
 /**
  * list_to_strings - The function list_to_strings generates an
  *	array of strings from the list->str data.
- * 
+ *
  * @head: a pointer to first node in the linked list.
  *
  * Return: An array of strings containing the list->str data.
@@ -60,9 +60,9 @@ char **list_to_strings(list_t *head)
 
 
 /**
- * print_list - The function display_list outputs all the 
+ * print_list - The function display_list outputs all the
  *	elements stored in a linked list of type list_t.
- * 
+ *
  * @h: a pointer to first node in the linked list
  *
  * Return: number of nodes in the linked list
@@ -91,7 +91,7 @@ size_t print_list(const list_t *h)
  *
  * @c: the character that follows the prefix and should match
  *	with the node's string
- * @node: pointer to the linked list head 
+ * @node: pointer to the linked list head
  * @prefix: string to match
  *
  * Return: match node or null
@@ -111,8 +111,8 @@ list_t *node_starts_with(list_t *node, char *prefix, char c)
 }
 
 /**
- * get_node_index -  retrieves the position of a node in the list. 
- * 
+ * get_node_index -  retrieves the position of a node in the list.
+ *
  * @head: a pointer to the head of the list
  * @node: a pointer to the node whose position is to be retrieved.
  *

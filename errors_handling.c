@@ -2,9 +2,9 @@
 
 /**
  * _erratoi - Transforms a string to an integer
- * 
+ *
  * @s:string
- * 
+ *
  * Return: converted number, -1 on error or 0 if no numbers in string
  */
 int _erratoi(char *s)
@@ -31,11 +31,11 @@ int _erratoi(char *s)
 
 /**
  * print_error - Displays a message error
- * 
+ *
  * @info: structure of the parameter
- * 
+ *
  * @estr: string
- * 
+ *
  * Return: converted number, -1 on error or 0 if no numbers in string
  */
 void print_error(info_t *info, char *estr)
@@ -51,7 +51,7 @@ void print_error(info_t *info, char *estr)
 
 /**
  * print_d - Function prints a decimal integer (base 10)
- * 
+ *
  * @input: input
  * @fd: file descriptor
  *
@@ -91,7 +91,7 @@ int print_d(int input, int fd)
 
 /**
  * convert_number - Convert function, similar to itoa.
- * 
+ *
  * @num: integer
  * @base: base
  * @flags: flags argument
@@ -128,7 +128,7 @@ char *convert_number(long int num, int base, int flags)
 
 /**
  * remove_comments - function replaces first'#' with '\0'
- * 
+ *
  * @buf: string address
  *
  * Return: Always 0

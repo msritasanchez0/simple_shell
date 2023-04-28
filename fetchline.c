@@ -1,11 +1,11 @@
-#include "shell.h"
+#iinclude "shell.h"
 
 /**
  * input_buf - Chained commands utilize buffers.
  *
  * @len: var address
  * @info: struct
- * @buf: buffer address 
+ * @buf: buffer address
  *
  * Return: bytes read
  */
@@ -47,7 +47,7 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 
 /**
  * get_input - Retrieve a string without the line break character.
- * 
+ *
  * @info: struct
  *
  * Return: bytes read
@@ -93,7 +93,7 @@ ssize_t get_input(info_t *info)
 
 /**
  * read_buf - reads a buffer
- * 
+ *
  * @i: size
  * @info: struct
  * @buf: buffer
@@ -115,7 +115,7 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
 /**
  * _getline - Retrieves the next line of input from
  *	the standard input stream (STDIN)
- * 
+ *
  * @ptr: The pointer to the buffer can either
  *	have a preallocated address or be NULL
  * @info: struct
@@ -165,7 +165,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 
 /**
  * sigintHandler - The blocks prevent ctrl-C from functioning
- * 
+ *
  * @sig_num: the signal integer
  *
  * Return: void

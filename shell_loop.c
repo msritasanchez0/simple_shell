@@ -48,7 +48,7 @@ int hsh(info_t *info, char **av)
 
 /**
  * find_builtin - searches the builtin command
- * 
+ *
  * @info: a struct containing input parameters and return values
  *
  * Return: 1 if the built-in command is not found.
@@ -84,7 +84,7 @@ int find_builtin(info_t *info)
 /**
  * find_cmd - searches for a command in the directories listed in
  *	the PATH environment variable.
- * 
+ *
  * @info: struct containing information about the command to be found,
  *	including the command name and the result of the search
  *
@@ -129,7 +129,7 @@ void find_cmd(info_t *info)
 
 /**
  * fork_cmd - creates a child process to execute a command using exec function
- * 
+ *
  * @info: a struct that contains input parameters and
  *	return values for the function
  *

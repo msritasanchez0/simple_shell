@@ -4,7 +4,7 @@
  * _myenv - prints the current environment
  *
  * @info: Structure.
- * 
+ *
  * Return: Always 0
  */
 int _myenv(info_t *info)
@@ -15,9 +15,9 @@ int _myenv(info_t *info)
 
 /**
  * _getenv - fetches the value of an env variable
- * 
+ *
  * @info: Structure
- * 
+ *
  * @name: name of the variable
  *
  * Return: the value
@@ -40,9 +40,9 @@ char *_getenv(info_t *info, const char *name)
 /**
  * _mysetenv - Set up a new environment variable
  *	or update an existing one.
- * 
+ *
  * @info: Struct
- * 
+ *
  * Return: Always 0
  */
 int _mysetenv(info_t *info)
@@ -81,9 +81,9 @@ int _myunsetenv(info_t *info)
 
 /**
  * populate_env_list - Fills up the linked list for environment variables.
- * 
+ *
  * @info: Structure
- * 
+ *
  * Return: Always 0
  */
 int populate_env_list(info_t *info)

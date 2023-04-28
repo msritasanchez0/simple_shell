@@ -11,11 +11,12 @@ int interactive(info_t *info)
 }
 
 /**
- * is_delim - This function determines whether
- * 	a given character is a delimiter or not.
- * @param c: the character to be checked.
- * @param delim: the string of delimiters.
- * @return: 1 if the character is a delimiter, 0 otherwise.
+ * is_delim - determines whether a given character is a delimiter or not.
+ *
+ * @c: the character to be checked.
+ * @delim: the string of delimiters.
+ *
+ * @return: 1 if true, 0 otherwise.
 */
 int is_delim(char c, char *delim)
 {
@@ -26,7 +27,7 @@ int is_delim(char c, char *delim)
 }
 
 /**
- * _isalpha - This function checks whether a given 
+ * _isalpha - This function checks whether a given
  *	character is an alphabetic character or not.
  * @c: The character to be checked
  * Return: 1 if the input character is an alphabetic character, 0 otherwise.
@@ -43,7 +44,7 @@ int _isalpha(int c)
  * _atoi - This function converts a string to an integer.
  * @s: The string to be converted.
  *
- * Return: If there are no numbers in the string, the function returns 0. 
+ * Return: If there are no numbers in the string, the function returns 0.
  *	Otherwise, it returns the converted number.
  */
 int _atoi(char *s)

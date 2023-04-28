@@ -3,7 +3,7 @@
 /**
  * is_chain -  checks whether the current character in the
  *	given buffer is a delimiter for a chain
- * 
+ *
  * @info: a struct containing the required parameters for the function.
  * @buf: a character buffer to search for the delimiter.
  * @p: a pointer to the current position in the buffer.
@@ -40,7 +40,7 @@ int is_chain(info_t *info, char *buf, size_t *p)
 /**
  * check_chain -  verifies whether we should continue linking
  *	based on the previous status
- * 
+ *
  * @info: a struct containing the parameters.
  * @buf: a character buffer.
  * @p: a pointer to the current position in the buffer.
@@ -106,8 +106,8 @@ int replace_alias(info_t *info)
 
 /**
  * replace_vars - substitutes variables in the tokenized string
- * 	with their corresponding values
- * 
+ *	with their corresponding values
+ *
  * @info:  the parameter struct that contains information about the
  *	variables and their values.
  *

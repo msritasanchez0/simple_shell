@@ -2,7 +2,7 @@
 
 /**
  * is_cmd - checks whether a file is an executable command.
- * 
+ *
  * @info: a struct containing information about the file
  * @path: path to the file
  *
@@ -26,7 +26,7 @@ int is_cmd(info_t *info, char *path)
 
 /**
  * dup_chars - creates a copy of the characters in a given range.
- * 
+ *
  * @stop: the index of the last character to be duplicated.
  * @pathstr: a string containing the characters to be duplicated.
  * @start: the index of the first character to be duplicated.
@@ -50,11 +50,11 @@ char *dup_chars(char *pathstr, int start, int stop)
  *
  * @cmd: the command to be located within the PATH string.
  * @info: a structure containing additional information
- * 	related to the command.
+ *	related to the command.
  * @pathstr: a string containing the PATH environment variable.
  *
  * Return: If the command is found within the PATH string,
- *	the function returns the full path of the command. 
+ *	the function returns the full path of the command.
  *	If the command is not found, the function returns NULL
  */
 char *find_path(info_t *info, char *pathstr, char *cmd)
