@@ -1,43 +1,36 @@
 #include "shell.h"
 
 /**
- * check_interactive - checks if shell is running in interactive mode
- * @info: a pointer to a struct containing shell information
- *
- * Return: 1 if shell is interactive, 0 otherwise
+ * interactive - If shell is interactive mode returns true
+ * @info: Pointer to a structure of type "info_t".
+ * Return: 1 if the shell is in interactive mode, 0 otherwise.
  */
-int check_interactive(info_t *info)
+int interactive(info_t *info)
 {
-	if (isatty(STDIN_FILENO) && info->readfd <= 2)
-		return (1);
-	else
-		return (0);
+	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
 
 /**
- * is_delimiter - checks if a character is a delimiter
- * @c: the character to check
- * @delim: a string of delimiters
- *
- * Return: 1 if c is a delimiter, 0 otherwise
- */
-int is_delimiter(char c, char *delim)
+ * is_delim - This function determines whether
+ * 	a given character is a delimiter or not.
+ * @param c: the character to be checked.
+ * @param delim: the string of delimiters.
+ * @return: 1 if the character is a delimiter, 0 otherwise.
+*/
+int is_delim(char c, char *delim)
 {
 	while (*delim)
-	{
-		if (*delim == c)
+		if (*delim++ == c)
 			return (1);
-		delim++;
-	}
 	return (0);
 }
 
 /**
- * _isalpha - checks if a character is alphabetic
- * @c: the character to check
- *
- * Return: 1 if c is an alphabetic character, 0 otherwise
- */
+ * _isalpha - This function checks whether a given 
+ *	character is an alphabetic character or not.
+ * @c: The character to be checked
+ * Return: 1 if the input character is an alphabetic character, 0 otherwise.
+*/
 int _isalpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
@@ -47,27 +40,36 @@ int _isalpha(int c)
 }
 
 /**
- * _atoi - converts a string to an integer
- * @s: the string to convert
+ * _atoi - This function converts a string to an integer.
+ * @s: The string to be converted.
  *
- * Return: the integer value of s, or 0 if no integer is found
+ * Return: If there are no numbers in the string, the function returns 0. 
+ *	Otherwise, it returns the converted number.
  */
 int _atoi(char *s)
 {
-	int i, sign = 1, flag = 0, output = 0;
+	int i, sign = 1, flag = 0, output;
+	unsigned int result = 0;
 
-	for (i = 0; s[i]; i++)
+	for (i = 0;  s[i] != '\0' && flag != 2; i++)
 	{
 		if (s[i] == '-')
 			sign *= -1;
+
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			flag = 1;
-			output = output * 10 + (s[i] - '0');
+			result *= 10;
+			result += (s[i] - '0');
 		}
 		else if (flag == 1)
-			break;
+			flag = 2;
 	}
 
-	return (output * sign);
+	if (sign == -1)
+		output = -result;
+	else
+		output = result;
+
+	return (output);
 }

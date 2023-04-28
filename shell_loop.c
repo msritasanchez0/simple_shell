@@ -1,13 +1,14 @@
-
-
 #include "shell.h"
 
 /**
- * hsh - main shell loop
- * @info: the parameter & return info struct
- * @av: the argument vector from main()
+ * hsh - the primary loop of the shell
  *
- * Return: 0 on success, 1 on error, or error code
+ * @info:  a struct containing the input parameters
+ *	and return values of the function.
+ * @av: an array of arguments passed to the function from main()
+ *
+ * Return: 0 if the function executes successfully,
+ *	1 if an error occurs, or an error code
  */
 int hsh(info_t *info, char **av)
 {
@@ -24,7 +25,7 @@ int hsh(info_t *info, char **av)
 		if (r != -1)
 		{
 			set_info(info, av);
-			builtin_ret = find_command(info);
+			builtin_ret = find_builtin(info);
 			if (builtin_ret == -1)
 				find_cmd(info);
 		}
@@ -46,17 +47,18 @@ int hsh(info_t *info, char **av)
 }
 
 /**
- * find_command - finds a command
- * @info: the parameter & return info struct
+ * find_builtin - searches the builtin command
+ * 
+ * @info: a struct containing input parameters and return values
  *
- * Return: -1 if builtin not found,
- *			0 if builtin executed successfully,
- *			1 if builtin found but not successful,
- *			-2 if builtin signals exit()
+ * Return: 1 if the built-in command is not found.
+ *	0 if the built-in command is executed successfully.
+ *	1 if the built-in command is found but not executed successfully.
+ *	-2 if the built-in command signals exit()
  */
-int find_command(info_t *info)
+int find_builtin(info_t *info)
 {
-	int i, ret = -1;
+	int i, built_in_ret = -1;
 	builtin_table builtintbl[] = {
 		{"exit", _myexit},
 		{"env", _myenv},
@@ -73,23 +75,37 @@ int find_command(info_t *info)
 		if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
 		{
 			info->line_count++;
-			ret = builtintbl[i].func(info);
+			built_in_ret = builtintbl[i].func(info);
 			break;
 		}
-	return (ret);
+	return (built_in_ret);
 }
 
 /**
- * find_cmd - finds a command in PATH
- * @info: the parameter & return info struct
+ * find_cmd - searches for a command in the directories listed in
+ *	the PATH environment variable.
+ * 
+ * @info: struct containing information about the command to be found,
+ *	including the command name and the result of the search
  *
- * Return: void
+ * Return: nothing (void)
  */
+
 void find_cmd(info_t *info)
 {
 	char *path = NULL;
+	int i, k;
 
-	if (!is_valid_cmd(info))
+	info->path = info->argv[0];
+	if (info->linecount_flag == 1)
+	{
+		info->line_count++;
+		info->linecount_flag = 0;
+	}
+	for (i = 0, k = 0; info->arg[i]; i++)
+		if (!is_delim(info->arg[i], " \t\n"))
+			k++;
+	if (!k)
 		return;
 
 	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
@@ -100,44 +116,55 @@ void find_cmd(info_t *info)
 	}
 	else
 	{
-		if (is_absolute_path(info->argv[0]) || _getenv(info, "PATH="))
-			print_cmd_error(info, "not found\n");
+		if ((interactive(info) || _getenv(info, "PATH=")
+			|| info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
+			fork_cmd(info);
+		else if (*(info->arg) != '\n')
+		{
+			info->status = 127;
+			print_error(info, "not found\n");
+		}
 	}
 }
 
 /**
- * fork_cmd - forks an exec thread to run cmd
- * @info: the parameter & return info struct
+ * fork_cmd - creates a child process to execute a command using exec function
+ * 
+ * @info: a struct that contains input parameters and
+ *	return values for the function
  *
- * Return: void
+ * Return: nothing(void)
  */
 void fork_cmd(info_t *info)
 {
-    pid_t child_pid = fork();
-    if (child_pid == -1)
-    {
-        perror("Error:");
-        return;
-    }
-    if (child_pid == 0)
-    {
-        if (execve(info->path, info->argv, get_environ(info)) == -1)
-        {
-            free_info(info, 1);
-            exit(errno == EACCES ? 126 : 1);
-        }
-    }
-    else
-    {
-        wait(&(info->status));
-        if (WIFEXITED(info->status))
-        {
-            info->status = WEXITSTATUS(info->status);
-            if (info->status == 126)
-            {
-                print_error(info, "Permission denied\n");
-            }
-        }
-    }
-}
+	pid_t child_pid;
 
+	child_pid = fork();
+	if (child_pid == -1)
+	{
+		/* TODO: PUT ERROR FUNCTION */
+		perror("Error:");
+		return;
+	}
+	if (child_pid == 0)
+	{
+		if (execve(info->path, info->argv, get_environ(info)) == -1)
+		{
+			free_info(info, 1);
+			if (errno == EACCES)
+				exit(126);
+			exit(1);
+		}
+		/* TODO: PUT ERROR FUNCTION */
+	}
+	else
+	{
+		wait(&(info->status));
+		if (WIFEXITED(info->status))
+		{
+			info->status = WEXITSTATUS(info->status);
+			if (info->status == 126)
+				print_error(info, "Permission denied\n");
+		}
+	}
+}
